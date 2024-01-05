@@ -1,0 +1,3 @@
+{% macro button(label, type='dark') %}
+    <button class="btn {% if type == 'dark' %}btn--dark{% else %}btn--light{% endif %}">{{ label }}</button>
+{% endmacro %}

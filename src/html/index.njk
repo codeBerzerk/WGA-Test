@@ -1,0 +1,74 @@
+{# index.njk #}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My WGA Test</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <!-- Slick Slider CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <!-- Slick Theme CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    {% include 'header.njk' %}
+    {% include 'promo-block.njk' %}
+    {% include 'gallery-block.njk' %}
+    {% include 'woman-fashion.njk' %}
+    {% include 'man-fashion.njk' %}
+    {% include 'avone-styles.njk' %}
+    {% include 'tachen19.njk' %}
+    {% include 'footer.njk' %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const slider = document.querySelector('.simple-slider');
+        const slides = slider.querySelectorAll('.simple-slide');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides[currentSlide].style.opacity = 0;
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].style.opacity = 1;
+        }
+
+        slider.querySelector('.prev-slide').addEventListener('click', function() {
+            showSlide(currentSlide - 1);
+        });
+
+        slider.querySelector('.next-slide').addEventListener('click', function() {
+            showSlide(currentSlide + 1);
+        });
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const burger = document.querySelector('.header__burger');
+        const nav = document.querySelector('.header__nav');
+
+        function adjustNavDisplay() {
+            const style = window.getComputedStyle(burger);
+            if (style.display === 'none') {
+                nav.style.display = 'block';
+            } else {
+                nav.style.display = 'none';
+            }
+        }
+
+        adjustNavDisplay();
+
+        window.addEventListener('resize', adjustNavDisplay);
+
+        burger.addEventListener('click', () => {
+            if (burger.style.display !== 'none') {
+                nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            }
+        });
+    });
+
+</script>
+
+</body>
+</html>

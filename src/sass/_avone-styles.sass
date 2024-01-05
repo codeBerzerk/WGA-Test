@@ -1,0 +1,124 @@
+.avone-styles
+  max-width: 1133px
+  margin: 110px auto 0
+  display: flex
+  flex-direction: column
+  align-items: center
+
+  &__header
+    text-align: center
+
+  &__title
+    color: #22262A
+    font-family: 'Poppins', sans-serif
+    font-size: 20px
+    font-weight: 700
+    line-height: 30px
+
+  &__subtitle
+    color: #22262A
+    font-family: 'Poppins', sans-serif
+    font-size: 15px
+    font-weight: 400
+    line-height: 23px
+    margin-top: 15px
+
+  &__images
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-template-rows: auto
+    gap: 30px
+    margin-top: 60px
+    position: relative
+    width: 100%
+
+  &__images
+      &--large
+        img
+          margin-top: 86px
+          width: 552px
+          height: auto
+          object-fit: cover
+
+      &--top-right
+        img
+          width: 514px
+          height: 451px
+          object-fit: cover
+
+      &--bottom-right
+        position: absolute
+        bottom: 0
+        right: 0
+        display: flex
+        align-items: flex-end
+        img
+          border-left: white solid 25px
+          border-top: white solid 22px
+          width: 227px
+          height: 281px
+          object-fit: cover
+        z-index: 2
+      @media (max-width: 1024px)
+        display: none
+
+  &__button
+    text-decoration: underline
+    color: #22262A
+    text-decoration-color: #22262A
+    text-underline-offset: 4px
+    margin-bottom: 40px
+    right: 0
+    font-family: 'Poppins', sans-serif
+    font-size: 15px
+    font-weight: 400
+    line-height: 23px
+    text-align: right
+    z-index: 3
+    cursor: pointer
+
+.simple-slider
+  display: none
+  position: relative
+  height: 600px
+  margin-left: 20px
+  margin-right: 20px
+
+  .simple-slide
+    width: 100%
+    height: 100%
+    background-size: cover
+    background-position: center
+    position: absolute
+    transition: opacity 0.5s ease
+    opacity: 0
+    &:first-child
+      opacity: 1
+
+  .prev-slide, .next-slide
+    display: none
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    background-color: transparent
+    border: none
+    padding: 10px
+    cursor: pointer
+    z-index: 10
+
+  .prev-slide
+    left: 10px
+
+  .next-slide
+    right: 10px
+
+  .simple-slide-arrow
+      color: white
+      font-size: 30px
+      height: 20px
+
+@media (max-width: 1024px)
+  .simple-slider
+    display: block
+    .prev-slide, .next-slide
+      display: block
